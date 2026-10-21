@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Alegreya_Sans, Cinzel, Cinzel_Decorative } from 'next/font/google'
+import { fontVariables } from "@/components/spell-stone/fonts"
 import SiteNav from "@/components/spell-stone/site-nav"
 import Hero from "@/components/spell-stone/hero"
 import HeroesShowcase from "@/components/spell-stone/heroes-showcase"
@@ -8,10 +8,6 @@ import { RevealObserver } from "@/components/spell-stone/effects"
 import {
   Arsenal, Bestiary, Features, Missions, Play, SiteFooter, Stats, Story,
 } from "@/components/spell-stone/sections"
-
-const display = Cinzel_Decorative({ subsets: ['latin'], weight: ['700', '900'], variable: '--font-cinzel-decorative', display: 'swap' })
-const caps = Cinzel({ subsets: ['latin'], weight: ['600', '700'], variable: '--font-cinzel', display: 'swap' })
-const body = Alegreya_Sans({ subsets: ['latin'], weight: ['400', '500', '700', '800'], style: ['normal', 'italic'], variable: '--font-alegreya-sans', display: 'swap' })
 
 const description = 'A hand-painted fantasy tower defense. Build and upgrade four kinds of tower, train eight heroes and call down meteors to stop the Ash King\'s army across a 24-map campaign.'
 
@@ -35,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function SpellStonePage() {
   return (
-    <div className={`ss-page ${display.variable} ${caps.variable} ${body.variable}`}>
+    <div className={`ss-page ${fontVariables}`}>
       <SiteNav />
       <main>
         <Hero />

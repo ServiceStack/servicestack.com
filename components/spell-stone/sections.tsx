@@ -322,9 +322,10 @@ export function SiteFooter() {
                     </div>
                 </div>
                 <nav aria-label="Footer" className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-semibold text-parchment/80">
-                    <a href="#story" className="hover:text-gold">Story</a>
-                    <a href="#heroes" className="hover:text-gold">Heroes</a>
-                    <a href="#gallery" className="hover:text-gold">Gallery</a>
+                    <a href="/spell-stone#story" className="hover:text-gold">Story</a>
+                    <a href="/spell-stone#heroes" className="hover:text-gold">Heroes</a>
+                    <a href="/spell-stone#gallery" className="hover:text-gold">Gallery</a>
+                    <a href="/spell-stone/privacy" className="hover:text-gold">Privacy</a>
                     <a href="/" className="hover:text-gold">More from ServiceStack</a>
                 </nav>
                 <p className="text-sm text-parchment-dim">&copy; {new Date().getFullYear()} ServiceStack Inc.</p>
