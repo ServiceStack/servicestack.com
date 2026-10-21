@@ -1,0 +1,4 @@
+@import "tailwindcss";
+@import "./spell-stone.css";
+
+[type='button'], button[type='submit'] { cursor: pointer; }
