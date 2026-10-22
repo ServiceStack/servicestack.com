@@ -3,6 +3,14 @@
 
 export const ASSETS = '/img/spell-stone'
 
+// Free desktop builds, offered for a limited time until the Steam release
+const DOWNLOADS = 'https://games.servicestack.com/spell-stone'
+export const downloads = [
+    { id: 'windows', name: 'Windows', note: 'Windows 10 & 11, 64-bit', size: '146 MB', url: `${DOWNLOADS}/SpellStone-windows-x86_64.zip` },
+    { id: 'macos',   name: 'macOS',   note: 'Universal: Apple Silicon & Intel', size: '204 MB', url: `${DOWNLOADS}/SpellStone-macos-universal.zip` },
+    { id: 'linux',   name: 'Linux',   note: '64-bit with Vulkan drivers', size: '136 MB', url: `${DOWNLOADS}/SpellStone-linux-x86_64.tar.gz` },
+] as const
+
 export const stats = [
     { value: '24', label: 'Campaign maps' },
     { value: '72', label: 'Missions' },

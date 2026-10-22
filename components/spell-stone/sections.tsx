@@ -1,6 +1,8 @@
-import { Ban, CheckCircle2, Code2, Laptop, Monitor, ShieldCheck, Smartphone, Sparkles, Tablet } from "lucide-react"
 import {
-    ASSETS, alchemist, enemies, missions, powers, shotUrl, stats, towerLines,
+    Ban, CheckCircle2, Code2, Download as DownloadIcon, Gift, Laptop, Monitor, ShieldCheck, Smartphone, Sparkles, Tablet,
+} from "lucide-react"
+import {
+    ASSETS, alchemist, downloads, enemies, missions, powers, shotUrl, stats, towerLines,
 } from "./data"
 import { Embers } from "./effects"
 
@@ -17,6 +19,53 @@ function SectionHeading({ eyebrow, title, children, align = 'center' }: {
             </h2>
             {children && <p className="mt-6 text-lg leading-relaxed text-parchment/80 sm:text-xl">{children}</p>}
         </div>
+    )
+}
+
+const downloadIcons = { windows: Monitor, macos: Laptop, linux: Code2 }
+
+export function Download() {
+    return (
+        <section id="download" className="ss-grain relative overflow-hidden border-t border-gold/15 bg-ink-2 py-20 sm:py-24">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,#f5c46a1f,transparent_60%)]" />
+            <Embers className="absolute inset-0 h-full w-full opacity-60" density={40} />
+            <div className="relative mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+                <p className="ss-pulse-glow mx-auto inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-gold" data-reveal>
+                    <Gift className="h-3.5 w-3.5" /> Limited time only
+                </p>
+                <h2 className="mt-5 font-display text-4xl font-bold leading-[1.1] sm:text-5xl lg:text-6xl" data-reveal>
+                    <span className="ss-gold">Download the full game free</span>
+                </h2>
+                <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-parchment/85 sm:text-xl" data-reveal>
+                    While we wait for Spell &amp; Stone to arrive on Steam, the complete desktop game is free to download
+                    for Windows, macOS and Linux. Grab it before the offer ends.
+                </p>
+
+                <ul className="mt-12 grid gap-4 sm:grid-cols-3" data-reveal>
+                    {downloads.map(d => {
+                        const Icon = downloadIcons[d.id]
+                        return (
+                            <li key={d.id}>
+                                <a href={d.url} download
+                                   className="ss-frame group flex h-full flex-col items-center px-6 py-7 transition-transform duration-300 hover:-translate-y-1">
+                                    <Icon className="h-10 w-10 text-gold drop-shadow-[0_0_12px_#f5c46a66]" />
+                                    <span className="mt-4 font-serif-caps text-2xl font-bold text-parchment">{d.name}</span>
+                                    <span className="mt-1 text-sm text-parchment-dim">{d.note}</span>
+                                    <span className="ss-btn-gold mt-6 w-full text-base">
+                                        <DownloadIcon className="h-4 w-4" /> Download Free
+                                    </span>
+                                    <span className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-parchment-dim">{d.size}</span>
+                                </a>
+                            </li>
+                        )
+                    })}
+                </ul>
+
+                <p className="mt-8 text-sm text-parchment-dim" data-reveal>
+                    iPhone &amp; iPad coming soon to the App Store.
+                </p>
+            </div>
+        </section>
     )
 }
 
@@ -270,10 +319,16 @@ export function Play() {
                 </div>
 
                 <div>
-                    <SectionHeading eyebrow="Coming Soon" title="Begin your adventure" align="left" />
+                    <SectionHeading eyebrow="Play Now" title="Begin your adventure" align="left" />
                     <p className="mt-6 text-lg leading-relaxed text-parchment/85" data-reveal>
-                        Spell &amp; Stone is coming to iPhone, iPad, Windows, macOS and Linux.
+                        Spell &amp; Stone is free to download on Windows, macOS and Linux for a limited time, ahead of its
+                        Steam release. iPhone and iPad are coming soon.
                     </p>
+                    <div className="mt-6" data-reveal>
+                        <a href="#download" className="ss-btn-gold text-base">
+                            <DownloadIcon className="h-4 w-4" /> Download Free
+                        </a>
+                    </div>
 
                     <div className="mt-6 rounded-2xl border border-arcane/30 bg-arcane/5 p-5" data-reveal>
                         <p className="font-serif-caps text-lg font-bold text-parchment">On iPhone &amp; iPad</p>

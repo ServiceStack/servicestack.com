@@ -6,7 +6,7 @@ import HeroesShowcase from "@/components/spell-stone/heroes-showcase"
 import Gallery from "@/components/spell-stone/gallery"
 import { RevealObserver } from "@/components/spell-stone/effects"
 import {
-  Arsenal, Bestiary, Features, Missions, Play, SiteFooter, Stats, Story,
+  Arsenal, Bestiary, Download, Features, Missions, Play, SiteFooter, Stats, Story,
 } from "@/components/spell-stone/sections"
 
 const description = 'A hand-painted fantasy tower defense. Build and upgrade four kinds of tower, train eight heroes and call down meteors to stop the Ash King\'s army across a 24-map campaign.'
@@ -35,6 +35,7 @@ export default function SpellStonePage() {
       <SiteNav />
       <main>
         <Hero />
+        <Download />
         <Stats />
         <Story />
         <Features />

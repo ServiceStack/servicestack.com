@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from "react"
-import { ChevronDown, Play, Sparkles } from "lucide-react"
+import { ChevronDown, Download, Gift } from "lucide-react"
 import { ASSETS } from "./data"
 import { Embers } from "./effects"
 
@@ -57,7 +57,7 @@ export default function Hero() {
             <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 pb-16 pt-2 text-center sm:px-6 md:absolute md:inset-x-0 md:bottom-0 md:pb-24">
                 <p className="ss-hero-in mb-4 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-ink/60 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-gold backdrop-blur"
                    style={{ animationDelay: '.2s' }}>
-                    <Sparkles className="h-3.5 w-3.5" /> Coming soon
+                    <Gift className="h-3.5 w-3.5" /> Free on desktop for a limited time
                 </p>
                 <h1 className="ss-hero-in font-display text-3xl font-bold leading-tight sm:text-5xl lg:text-6xl"
                     style={{ animationDelay: '.35s' }}>
@@ -69,8 +69,8 @@ export default function Hero() {
                     and call down meteors to stop the Ash King&apos;s army across a 24-map campaign.
                 </p>
                 <div className="ss-hero-in mt-9 flex flex-wrap items-center justify-center gap-4" style={{ animationDelay: '.65s' }}>
-                    <a href="#play" className="ss-btn-gold text-base">
-                        <Play className="h-4 w-4 fill-current" /> Get the Game
+                    <a href="#download" className="ss-btn-gold text-base">
+                        <Download className="h-4 w-4" /> Download Free
                     </a>
                     <a href="#gallery" className="ss-btn-ghost text-base">See it in Action</a>
                 </div>

@@ -10,7 +10,7 @@ const links = [
     { href: '#heroes', name: 'Heroes' },
     { href: '#arsenal', name: 'Arsenal' },
     { href: '#gallery', name: 'Gallery' },
-    { href: '#play', name: 'Play' },
+    { href: '#download', name: 'Download' },
 ]
 
 export default function SiteNav() {
