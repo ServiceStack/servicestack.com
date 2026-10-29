@@ -41,7 +41,10 @@ components/spell-stone/
 styles/
 ├── index.css                # Tailwind entry
 └── spell-stone.css          # Theme tokens (ink/parchment/gold), fonts, animations, utility classes (ss-*)
+components/cortex-zero/       # Cortex Zero mini site at /cortex-zero (same layout: data.ts, sections.tsx, client parts)
+styles/cortex-zero.css       # Its theme tokens (cz-*: ink/fog/cyan/amber/crimson), Chakra Petch + Share Tech Mono
 public/img/spell-stone/      # WebP art and screenshots exported from the game repo
+public/img/cortex-zero/      # Cortex Zero art and in-engine screenshots (game repo: scripts/capture-shots.sh)
 public/img/hub/              # Card art for the home hub
 .github/workflows/deploy.yml # Build + deploy to GitHub Pages on push to main
 ```

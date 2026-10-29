@@ -1,4 +1,5 @@
 @import "tailwindcss";
 @import "./spell-stone.css";
+@import "./cortex-zero.css";
 
 [type='button'], button[type='submit'] { cursor: pointer; }

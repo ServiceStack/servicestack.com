@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
-import { ArrowRight, ArrowUpRight, Sparkles } from "lucide-react"
+import { ArrowRight, ArrowUpRight, Radio, Sparkles } from "lucide-react"
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 
@@ -69,6 +69,7 @@ export default function Home() {
         </Link>
         <nav aria-label="Sites" className="flex items-center gap-1 text-sm font-medium">
           <Link href="/spell-stone" className="hidden rounded-full px-3 py-2 text-slate-300 transition-colors hover:bg-white/5 hover:text-white sm:inline-block">Spell &amp; Stone</Link>
+          <Link href="/cortex-zero" className="hidden rounded-full px-3 py-2 text-slate-300 transition-colors hover:bg-white/5 hover:text-white sm:inline-block">Cortex Zero</Link>
           <a href="https://react-templates.net" className="hidden rounded-full px-3 py-2 text-slate-300 transition-colors hover:bg-white/5 hover:text-white md:inline-block">React Templates</a>
           <a href="https://servicestack.net" className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-white transition-colors hover:border-white/30 hover:bg-white/10">
             servicestack.net <ArrowUpRight className="h-4 w-4" />
@@ -115,6 +116,32 @@ export default function Home() {
           </div>
         </Link>
 
+        {/* Featured: Cortex Zero */}
+        <Link href="/cortex-zero" aria-label="Cortex Zero: explore the game"
+              className="group relative mt-8 block overflow-hidden rounded-[2rem] shadow-2xl shadow-black/60 ring-1 ring-cyan-300/15 transition-all duration-500 hover:ring-cyan-300/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
+          <div className="relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-[21/9]">
+            {/* The squad stands on the right of the key art, clear of the copy */}
+            <div className="absolute inset-0 overflow-hidden bg-[#070a12] lg:left-[24%]">
+              <img src="/img/cortex-zero/keyart.webp" alt=""
+                   className="absolute inset-0 h-full w-full object-cover object-[75%_40%] transition-transform duration-[1.5s] ease-out group-hover:scale-105" />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-[#070a12]/50 to-transparent lg:bg-gradient-to-r lg:from-[#070a12] lg:from-[24%] lg:via-[#070a12]/40 lg:via-[38%] lg:to-transparent lg:to-[55%]" />
+            <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10 lg:inset-y-0 lg:right-auto lg:flex lg:max-w-md lg:flex-col lg:justify-center lg:p-12">
+              <p className="inline-flex w-fit items-center gap-2 rounded-full border border-cyan-300/30 bg-black/40 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-cyan-300 backdrop-blur">
+                <Radio className="h-3.5 w-3.5" /> New game · In development
+              </p>
+              <h2 className="mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">Cortex Zero</h2>
+              <p className="mt-4 max-w-md text-base leading-relaxed text-slate-200 sm:text-lg">
+                A neo-noir real-time tactics and stealth game. Lead four resurrected Enforcers through a rain-soaked megacity and sever the Chime.
+              </p>
+              <p className="mt-2 text-sm font-medium text-slate-400">Windows · macOS · Linux · iPad</p>
+              <span className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-gradient-to-b from-cyan-200 to-cyan-400 px-6 py-3 font-bold text-cyan-950 shadow-lg shadow-cyan-400/30 transition-transform group-hover:translate-x-1">
+                Explore the game <ArrowRight className="h-4 w-4" />
+              </span>
+            </div>
+          </div>
+        </Link>
+
         {/* Related sites */}
         <section aria-label="Related sites" className="mt-8 grid gap-8 md:grid-cols-2">
           {sites.map(s => (
@@ -149,6 +176,7 @@ export default function Home() {
           <p>&copy; {new Date().getFullYear()} ServiceStack Inc.</p>
           <nav aria-label="Footer" className="flex gap-6">
             <Link href="/spell-stone" className="hover:text-slate-300">Spell &amp; Stone</Link>
+            <Link href="/cortex-zero" className="hover:text-slate-300">Cortex Zero</Link>
             <a href="https://servicestack.net" className="hover:text-slate-300">servicestack.net</a>
             <a href="https://react-templates.net" className="hover:text-slate-300">react-templates.net</a>
           </nav>
