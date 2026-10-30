@@ -1,5 +1,6 @@
-import { BookOpen, Save, Laptop, Monitor, MousePointerClick, ShieldCheck, Tablet, Terminal } from "lucide-react"
-import { ASSETS, acts, cast, cyberware, lyra, shotUrl, stats, weapons } from "./data"
+import { BookOpen, Download as DownloadIcon, Gamepad2, Gift, Laptop, Monitor, MousePointerClick, Save, ShieldCheck, Smartphone, Tablet, Terminal } from "lucide-react"
+import { ASSETS, acts, cast, cyberware, downloads, lyra, shotUrl, stats, weapons } from "./data"
+import { Rain } from "./effects"
 
 function SectionHeading({ eyebrow, title, children, align = 'center', tone = 'cyan' }: {
     eyebrow: string, title: React.ReactNode, children?: React.ReactNode, align?: 'center' | 'left', tone?: 'cyan' | 'amber' | 'crimson'
@@ -11,6 +12,53 @@ function SectionHeading({ eyebrow, title, children, align = 'center', tone = 'cy
             <h2 className={`${neon} mt-4 text-4xl font-bold uppercase leading-[1.05] tracking-wide sm:text-5xl lg:text-6xl`}>{title}</h2>
             {children && <p className="mt-6 text-lg leading-relaxed text-cz-fog/80 sm:text-xl">{children}</p>}
         </div>
+    )
+}
+
+const downloadIcons = { windows: Monitor, macos: Laptop, linux: Terminal }
+
+export function Download() {
+    return (
+        <section id="download" className="cz-scan relative overflow-hidden border-t border-cz-cyan/15 bg-cz-ink-2 py-20 sm:py-24">
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,#00f0ff1f,transparent_60%),radial-gradient(ellipse_at_50%_100%,#ff9e0012,transparent_55%)]" />
+            <Rain className="absolute inset-0 h-full w-full opacity-50" density={70} />
+            <div className="relative mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+                <p className="mx-auto inline-flex items-center gap-2 border border-cz-amber/50 bg-cz-amber/10 px-4 py-1.5 font-cz-mono text-xs uppercase tracking-[0.25em] text-cz-amber" data-reveal>
+                    <Gift className="h-3.5 w-3.5" /> Limited time only
+                </p>
+                <h2 className="cz-neon mt-5 text-balance text-4xl font-bold uppercase leading-[1.05] tracking-wide sm:text-5xl lg:text-6xl" data-reveal>
+                    Download the full game free
+                </h2>
+                <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-cz-fog/85 sm:text-xl" data-reveal>
+                    Ahead of its release on the App Store and Steam, the complete desktop game is free to download for
+                    Windows, macOS and Linux. Grab it before the offer ends.
+                </p>
+
+                <ul className="mx-auto mt-12 grid max-w-md gap-4 lg:max-w-none lg:grid-cols-3" data-reveal>
+                    {downloads.map(d => {
+                        const Icon = downloadIcons[d.id]
+                        return (
+                            <li key={d.id}>
+                                <a href={d.url} download className="cz-dl group" aria-label={`Download Cortex Zero free for ${d.name} (${d.size})`}>
+                                    <Icon className="h-9 w-9 shrink-0" strokeWidth={1.75} />
+                                    <span className="min-w-0 flex-1">
+                                        <span className="block font-cz-mono text-[0.7rem] uppercase tracking-[0.2em] opacity-75">Download free for</span>
+                                        <span className="block text-2xl font-bold uppercase leading-tight tracking-wider">{d.name}</span>
+                                        <span className="mt-0.5 block font-cz-mono text-xs uppercase tracking-[0.14em] opacity-75">{d.size}</span>
+                                    </span>
+                                    <DownloadIcon className="h-6 w-6 shrink-0 transition-transform group-hover:translate-y-0.5" strokeWidth={2.5} />
+                                </a>
+                                <p className="mt-2.5 text-sm text-cz-fog-dim">{d.note}</p>
+                            </li>
+                        )
+                    })}
+                </ul>
+
+                <p className="mt-10 font-cz-mono text-sm uppercase tracking-[0.14em] text-cz-fog-dim" data-reveal>
+                    iPhone, iPad &amp; Mac coming soon to the App Store · PC on Steam
+                </p>
+            </div>
+        </section>
     )
 }
 
@@ -269,10 +317,10 @@ export function Concordance() {
 }
 
 const platforms = [
-    { name: 'Windows', icon: Monitor, note: 'Mouse and keyboard' },
-    { name: 'macOS', icon: Laptop, note: 'Mouse and keyboard' },
-    { name: 'Linux', icon: Terminal, note: 'Mouse and keyboard' },
-    { name: 'iPad', icon: Tablet, note: 'Multi-touch: tap, drag, pinch and twist' },
+    { name: 'iPhone', icon: Smartphone, note: 'App Store · touch, with pinch to zoom' },
+    { name: 'iPad', icon: Tablet, note: 'App Store · multi-touch: tap, drag, pinch and twist' },
+    { name: 'Mac', icon: Laptop, note: 'App Store · mouse and keyboard' },
+    { name: 'Steam', icon: Gamepad2, note: 'Windows PC · mouse and keyboard' },
 ]
 
 const promises = [
@@ -282,45 +330,68 @@ const promises = [
     { icon: BookOpen, text: 'In-game controls manual, one key away' },
 ]
 
+const bezel = 'border border-white/15 bg-[#05070c] shadow-[0_30px_60px_-20px_#000,0_0_40px_-12px_#00f0ff55]'
+
+// The same build on every screen: a Mac with an iPad and an iPhone propped in front of it
+function Devices() {
+    return (
+        <div className="relative mx-auto mt-16 max-w-5xl pb-[13%]" data-reveal>
+            <div className="absolute inset-x-[10%] inset-y-[5%] bg-cz-cyan/15 blur-3xl" />
+            <figure className="relative mx-auto w-[84%]">
+                <div className={`${bezel} rounded-t-md p-[1.4%] sm:rounded-t-xl`}>
+                    <img src={`${ASSETS}/devices/mac.webp`} loading="lazy" className="aspect-[16/10] w-full object-cover"
+                         alt="Cortex Zero on a Mac: the squad raids the Ares Foundry with the alarm up" />
+                </div>
+                <div className="-mx-[6%] h-2 rounded-b-lg bg-gradient-to-b from-[#3a4252] to-[#141820] sm:h-3.5 sm:rounded-b-2xl" />
+            </figure>
+            <figure className={`${bezel} absolute bottom-0 left-0 w-[34%] rounded-lg p-[1.6%] sm:rounded-2xl`}>
+                <img src={`${ASSETS}/devices/ipad.webp`} loading="lazy" className="aspect-[4/3] w-full rounded-sm object-cover sm:rounded-md"
+                     alt="Cortex Zero on iPad: Chrono-Overclock slows Vance's escape to 15%" />
+            </figure>
+            <figure className={`${bezel} absolute bottom-[3%] right-0 w-[37%] rounded-lg p-[1.3%] sm:rounded-[1.4rem]`}>
+                <img src={`${ASSETS}/devices/iphone.webp`} loading="lazy" className="aspect-[2796/1290] w-full rounded-sm object-cover sm:rounded-xl"
+                     alt="Cortex Zero on iPhone: the squad moves concealed through the Mid-Deck" />
+            </figure>
+        </div>
+    )
+}
+
 export function Platforms() {
     return (
         <section id="play" className="relative overflow-hidden py-24 sm:py-32">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,#00f0ff14,transparent_55%),radial-gradient(ellipse_at_80%_60%,#ff9e0012,transparent_50%)]" />
-            <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-                <div className="relative mx-auto w-full max-w-xl" data-reveal>
-                    <div className="absolute -inset-8 bg-cz-cyan/15 blur-3xl" />
-                    <div className="cz-feed relative overflow-hidden">
-                        <img src={shotUrl('11-briefing')} alt="The mission briefing for Red Parade: Lyra's orders, objectives and field tactics" loading="lazy" className="w-full" />
-                    </div>
+            <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <SectionHeading eyebrow="Play Now" title="Answer the signal">
+                    Cortex Zero is coming to iPhone, iPad and Mac on the App Store, and to PC on Steam, with every order
+                    equally at home under a mouse or a fingertip. Play it free on Windows, macOS and Linux today.
+                </SectionHeading>
+                <div className="mt-9 flex justify-center" data-reveal>
+                    <a href="#download" className="cz-btn">
+                        <DownloadIcon className="h-4 w-4" /> Download Free
+                    </a>
                 </div>
 
-                <div>
-                    <SectionHeading eyebrow="Coming Soon" title="Answer the signal" align="left" />
-                    <p className="mt-6 text-lg leading-relaxed text-cz-fog/85" data-reveal>
-                        Cortex Zero is in development for Windows, macOS, Linux and iPad, with every order equally at home
-                        under a mouse or a fingertip.
-                    </p>
+                <Devices />
 
-                    <ul className="mt-8 grid grid-cols-2 gap-3" data-reveal>
-                        {platforms.map(p => (
-                            <li key={p.name} className="flex items-start gap-3 border border-cz-cyan/15 bg-white/[0.03] p-4">
-                                <p.icon className="mt-0.5 h-5 w-5 shrink-0 text-cz-cyan" />
-                                <span>
-                                    <span className="block font-semibold tracking-wide text-cz-fog">{p.name}</span>
-                                    <span className="block text-sm text-cz-fog-dim">{p.note}</span>
-                                </span>
-                            </li>
-                        ))}
-                    </ul>
+                <ul className="mt-16 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" data-reveal>
+                    {platforms.map(p => (
+                        <li key={p.name} className="flex items-start gap-3 border border-cz-cyan/15 bg-white/[0.03] p-4">
+                            <p.icon className="mt-0.5 h-5 w-5 shrink-0 text-cz-cyan" />
+                            <span>
+                                <span className="block font-semibold tracking-wide text-cz-fog">{p.name}</span>
+                                <span className="block text-sm text-cz-fog-dim">{p.note}</span>
+                            </span>
+                        </li>
+                    ))}
+                </ul>
 
-                    <ul className="mt-8 grid gap-2.5 sm:grid-cols-2" data-reveal>
-                        {promises.map(p => (
-                            <li key={p.text} className="flex items-center gap-2.5 text-cz-fog/85">
-                                <p.icon className="h-4 w-4 shrink-0 text-cz-amber" /> {p.text}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+                <ul className="mx-auto mt-10 grid max-w-3xl gap-2.5 sm:grid-cols-2" data-reveal>
+                    {promises.map(p => (
+                        <li key={p.text} className="flex items-center gap-2.5 text-cz-fog/85">
+                            <p.icon className="h-4 w-4 shrink-0 text-cz-amber" /> {p.text}
+                        </li>
+                    ))}
+                </ul>
             </div>
         </section>
     )

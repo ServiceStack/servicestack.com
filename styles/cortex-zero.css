@@ -104,6 +104,20 @@
 }
 .cz-btn-ghost:hover { background: #ff9e0014; border-color: var(--color-cz-amber); transform: translateY(-2px); }
 
+/* Large download button: a solid cyan slab with clipped corners that lifts and glows on hover */
+.cz-dl {
+  position: relative;
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.15rem 1.4rem;
+  color: #00141a; text-align: left;
+  background: linear-gradient(180deg, #8ffbff, #00d8e6 55%, #00b8c8);
+  clip-path: polygon(16px 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%, 0 16px);
+  box-shadow: 0 0 34px -6px #00f0ffaa, inset 0 1px 0 #ffffff99, inset 0 -3px 0 #00000026;
+  transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+}
+.cz-dl:hover { transform: translateY(-3px); filter: brightness(1.12); box-shadow: 0 0 50px -4px #00f0ffdd, inset 0 1px 0 #ffffff99, inset 0 -3px 0 #00000026; }
+.cz-dl:active { transform: translateY(0); filter: brightness(.95); }
+
 .cz-page a:focus-visible, .cz-page button:focus-visible {
   outline: 2px solid var(--color-cz-amber);
   outline-offset: 3px;
@@ -156,6 +170,7 @@
 @media (prefers-reduced-motion: reduce) {
   .cz-flicker, .cz-glitch, .cz-pulse, .cz-blink, .cz-in, .cz-sweep { animation: none; }
   .cz-sweep { display: none; }
+  .cz-dl, .cz-dl:hover, .cz-dl:active { transform: none; }
 }
 
 /* Keep overscroll and the area behind the page dark */

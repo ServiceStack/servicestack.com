@@ -11,6 +11,7 @@ const links = [
     { href: '#campaign', name: 'Campaign' },
     { href: '#arsenal', name: 'Arsenal' },
     { href: '#gallery', name: 'Gallery' },
+    { href: '#download', name: 'Download' },
 ]
 
 export default function SiteNav() {

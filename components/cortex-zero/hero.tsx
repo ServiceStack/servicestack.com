@@ -1,11 +1,11 @@
 'use client'
 
 import { useEffect, useRef } from "react"
-import { ChevronDown, Radio } from "lucide-react"
+import { ChevronDown, Download, Gift, Radio } from "lucide-react"
 import { ASSETS } from "./data"
 import { Rain } from "./effects"
 
-const platforms = ['Windows', 'macOS', 'Linux', 'iPad']
+const platforms = ['iPhone', 'iPad', 'Mac', 'Steam']
 
 export default function Hero() {
     const art = useRef<HTMLDivElement>(null)
@@ -72,9 +72,15 @@ export default function Hero() {
                         the rain-soaked megacity of New Meridian, guided by Lyra, the rogue AI who woke you up.
                     </p>
                     <div className="cz-in mt-9 flex flex-wrap items-center gap-4" style={{ animationDelay: '.75s' }}>
-                        <a href="#gallery" className="cz-btn">See it in action</a>
-                        <a href="#story" className="cz-btn-ghost">Read the briefing</a>
+                        <a href="#download" className="cz-btn">
+                            <Download className="h-4 w-4" /> Download Free
+                        </a>
+                        <a href="#gallery" className="cz-btn-ghost">See it in action</a>
                     </div>
+                    <p className="cz-in mt-5 flex items-center gap-2 font-cz-mono text-xs uppercase tracking-[0.2em] text-cz-amber sm:text-sm"
+                       style={{ animationDelay: '.8s' }}>
+                        <Gift className="h-4 w-4" /> Free on Windows, macOS &amp; Linux for a limited time
+                    </p>
                     <ul className="cz-in mt-8 flex flex-wrap gap-x-5 gap-y-2 font-cz-mono text-xs uppercase tracking-[0.22em] text-cz-fog-dim sm:text-sm"
                         style={{ animationDelay: '.9s' }} aria-label="Platforms">
                         {platforms.map((p, i) => (

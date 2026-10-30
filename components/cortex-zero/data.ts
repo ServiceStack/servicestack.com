@@ -3,6 +3,14 @@
 
 export const ASSETS = '/img/cortex-zero'
 
+// Free desktop builds, offered for a limited time ahead of the App Store and Steam releases
+const DOWNLOADS = 'https://games.servicestack.com/cortex-zero'
+export const downloads = [
+    { id: 'windows', name: 'Windows', note: 'Windows 10 & 11, 64-bit', size: '223 MB', url: `${DOWNLOADS}/CortexZero-windows-x64.zip` },
+    { id: 'macos',   name: 'macOS',   note: 'Universal: Apple Silicon & Intel', size: '276 MB', url: `${DOWNLOADS}/CortexZero-macos-universal-notarized.zip` },
+    { id: 'linux',   name: 'Linux',   note: '64-bit, x86-64', size: '212 MB', url: `${DOWNLOADS}/CortexZero-linux-x64.tar.gz` },
+] as const
+
 export const stats = [
     { value: '24', label: 'Story missions' },
     { value: '6',  label: 'Acts' },
@@ -102,14 +110,16 @@ export const shots: Shot[] = [
     { id: '02-red-parade', title: 'Red Parade', caption: 'Breaking through Inquisitor Kael\'s parade shield.' },
     { id: '03-boarders', title: 'Boarders on the Cain', caption: 'Holding the airship against Harmonizer boarding teams.' },
     { id: '04-chrono-overclock', title: 'Chrono-Overclock', caption: 'Lyra slows the world to 15% so you can plan.' },
-    { id: '05-foundry', title: 'Chrome & Ash', caption: 'Raiding the Ares Foundry for the Gauss Cannon.' },
+    { id: '05-foundry', title: 'Chrome & Ash', caption: 'Weapons drawn and the alarm up inside the Ares Foundry.' },
     { id: '06-voice-of-the-spire', title: 'Voice of the Spire', caption: 'A storm-lashed rooftop fight for the Master Cipher.' },
-    { id: '07-neon-avenue', title: 'The Mid-Deck', caption: 'Rain, neon and searchlights on every street.' },
+    { id: '07-neon-avenue', title: 'The Mid-Deck', caption: 'Four trench coats, weapons concealed, under Metro Line 4.' },
     { id: '08-persuadertron', title: 'The Persuadertron', caption: 'Riot police marked for a Memory Flash.' },
     { id: '09-sanctuary', title: 'The Sanctuary', caption: 'Lyra at the Intel Matrix in your hideout beneath the Sump.' },
     { id: '10-surgery-bay', title: 'Surgery Bay', caption: 'Graft cyberware into four slots, three tiers each.' },
-    { id: '11-briefing', title: 'Mission Briefing', caption: 'Lyra lays out every operation before you deploy.' },
+    { id: '11-briefing', title: 'Mission Briefing', caption: 'Lyra\'s orders, objectives and field tactics for Panopticon Down.' },
     { id: '12-archon', title: 'The Story', caption: 'Lyra\'s interludes link every mission to the next.' },
+    { id: '13-thaw', title: 'Thaw', caption: 'Vance wakes unarmed in a cryo-penitentiary: silent takedowns only.' },
+    { id: '14-title-screen', title: 'New Meridian', caption: 'Sever the Chime. Reclaim the city.' },
 ]
 
 export const shotUrl = (id: string, small = false) => `${ASSETS}/shots/${id}${small ? '-sm' : ''}.webp`

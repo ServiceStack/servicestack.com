@@ -128,13 +128,13 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#070a12] via-[#070a12]/50 to-transparent lg:bg-gradient-to-r lg:from-[#070a12] lg:from-[24%] lg:via-[#070a12]/40 lg:via-[38%] lg:to-transparent lg:to-[55%]" />
             <div className="absolute inset-x-0 bottom-0 p-6 sm:p-10 lg:inset-y-0 lg:right-auto lg:flex lg:max-w-md lg:flex-col lg:justify-center lg:p-12">
               <p className="inline-flex w-fit items-center gap-2 rounded-full border border-cyan-300/30 bg-black/40 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-cyan-300 backdrop-blur">
-                <Radio className="h-3.5 w-3.5" /> New game · In development
+                <Radio className="h-3.5 w-3.5" /> New game · Free on desktop
               </p>
               <h2 className="mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">Cortex Zero</h2>
               <p className="mt-4 max-w-md text-base leading-relaxed text-slate-200 sm:text-lg">
                 A neo-noir real-time tactics and stealth game. Lead four resurrected Enforcers through a rain-soaked megacity and sever the Chime.
               </p>
-              <p className="mt-2 text-sm font-medium text-slate-400">Windows · macOS · Linux · iPad</p>
+              <p className="mt-2 text-sm font-medium text-slate-400">Windows · macOS · Linux · iPhone · iPad · Steam</p>
               <span className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-gradient-to-b from-cyan-200 to-cyan-400 px-6 py-3 font-bold text-cyan-950 shadow-lg shadow-cyan-400/30 transition-transform group-hover:translate-x-1">
                 Explore the game <ArrowRight className="h-4 w-4" />
               </span>

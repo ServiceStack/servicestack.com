@@ -6,7 +6,7 @@ import SquadShowcase from "@/components/cortex-zero/squad-showcase"
 import Gallery from "@/components/cortex-zero/gallery"
 import { RevealObserver } from "@/components/spell-stone/effects"
 import {
-  Arsenal, Campaign, Concordance, Features, Platforms, SiteFooter, Stats, Story,
+  Arsenal, Campaign, Concordance, Download, Features, Platforms, SiteFooter, Stats, Story,
 } from "@/components/cortex-zero/sections"
 
 const description = 'A neo-noir real-time tactics and stealth game. Command four resurrected Enforcers through the rain-soaked megacity of New Meridian and sever the Chime across a 24-mission campaign.'
@@ -36,6 +36,7 @@ export default function CortexZeroPage() {
       <SiteNav />
       <main>
         <Hero />
+        <Download />
         <Stats />
         <Story />
         <section id="squad" className="cz-grid relative overflow-hidden bg-cz-ink-2 py-24 sm:py-32">
