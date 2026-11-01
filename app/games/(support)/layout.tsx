@@ -1,4 +1,4 @@
-import "../../styles/games.css"
+import "../../../styles/games.css"
 import type { Metadata } from 'next'
 import { fontVariables } from "@/components/games/fonts"
 import { CONTACT, games, iconUrl } from "@/components/games/data"
@@ -39,7 +39,7 @@ export default function GamesLayout({ children }: { children: React.ReactNode })
         <div className="gs-wrap">
           <ul className="gs-footer-games">
             {games.map(game => (
-              <li key={game.id}><a href={`/${game.id}`}><img src={iconUrl(game.id)} alt="" width={40} height={40} loading="lazy" /><span>{game.name}</span></a></li>
+              <li key={game.id}><a href={`/games/${game.id}`}><img src={iconUrl(game.id)} alt="" width={40} height={40} loading="lazy" /><span>{game.name}</span></a></li>
             ))}
           </ul>
           <p>Games by <a href="/">ServiceStack</a>. Prefer email? Write to <a href={mailto}>{CONTACT}</a></p>

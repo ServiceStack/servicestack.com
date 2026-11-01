@@ -410,9 +410,9 @@ export function SiteFooter() {
                     </div>
                 </div>
                 <nav aria-label="Footer" className="flex flex-wrap justify-center gap-x-6 gap-y-2 font-cz-mono text-sm uppercase tracking-[0.12em] text-cz-fog/75">
-                    <a href="/cortex-zero#story" className="hover:text-cz-cyan">Story</a>
-                    <a href="/cortex-zero#squad" className="hover:text-cz-cyan">Squad</a>
-                    <a href="/cortex-zero#gallery" className="hover:text-cz-cyan">Gallery</a>
+                    <a href="/games/cortex-zero#story" className="hover:text-cz-cyan">Story</a>
+                    <a href="/games/cortex-zero#squad" className="hover:text-cz-cyan">Squad</a>
+                    <a href="/games/cortex-zero#gallery" className="hover:text-cz-cyan">Gallery</a>
                     <a href="/" className="hover:text-cz-cyan">More from ServiceStack</a>
                 </nav>
                 <p className="font-cz-mono text-sm text-cz-fog-dim">&copy; {new Date().getFullYear()} ServiceStack Inc.</p>

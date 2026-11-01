@@ -1,7 +1,7 @@
 # servicestack.com
 
 The static website for ServiceStack's products. The home page links to mini sites hosted here, like the
-**Spell & Stone** game at `/spell-stone`, and to related sites like [servicestack.net](https://servicestack.net)
+**Cortex Zero** and **Spell & Stone** games at `/games/cortex-zero` and `/games/spell-stone`, and to related sites like [servicestack.net](https://servicestack.net)
 and [react-templates.net](https://react-templates.net).
 
 Built with Next.js (static export), React and Tailwind CSS, and hosted on GitHub Pages.

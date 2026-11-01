@@ -6,7 +6,7 @@ Guidance for Claude Code and other agents working in this repository.
 
 servicestack.com is a **fully static** marketing site for ServiceStack's products, built with Next.js 16 (App Router),
 React 19 and Tailwind CSS v4. The home page (`/`) is a hub of CTAs to mini sites hosted here, like the **Spell & Stone**
-game at `/spell-stone`, and to related sites like [servicestack.net](https://servicestack.net) and
+game at `/games/spell-stone` and **Cortex Zero** at `/games/cortex-zero`, and to related sites like [servicestack.net](https://servicestack.net) and
 [react-templates.net](https://react-templates.net).
 
 There is no backend: no API, auth, database or server runtime. Everything is exported to plain HTML/CSS/JS and
@@ -28,7 +28,11 @@ npm run typecheck    # tsc only
 app/
 ├── layout.tsx               # Root layout: global CSS, site-wide metadata, viewport
 ├── page.tsx                 # Home hub: featured mini site + cards linking to related sites
-├── spell-stone/page.tsx     # Spell & Stone mini site (fonts, SEO/OG metadata, section order)
+├── games/
+│   ├── (support)/           # Route group: /games, /games/support, /games/privacy share its layout (nav + footer)
+│   ├── spell-stone/page.tsx # Spell & Stone mini site (fonts, SEO/OG metadata, section order), outside that layout
+│   └── cortex-zero/page.tsx # Cortex Zero mini site
+├── spell-stone/, cortex-zero/ # Redirect stubs: the mini sites' old URLs forward to /games/* (components/redirect.tsx)
 ├── icon.png, apple-icon.png # Favicons (game icon), picked up automatically by Next.js
 components/spell-stone/
 ├── data.ts                  # All game facts and copy: heroes, towers, enemies, missions, screenshots
@@ -55,7 +59,9 @@ public/img/hub/              # Card art for the home hub
   `next/image` optimization, rewrites or anything else that needs a Node server. Data must be available at build time.
 - **Content lives in `data.ts`.** Game facts come from the game repo (`docs/STORE.md`, `game/data/*.json`); keep them
   in step with the shipping build and don't advertise features the game doesn't have.
-- **Mini sites** live at `app/<name>/page.tsx` with components in `components/<name>/`; add a card for them on the hub.
+- **Mini sites** for games live at `app/games/<name>/page.tsx` (outside the `(support)` route group, so they keep their
+  own chrome) with components in `components/<name>/`; add a card for them on the hub. Static export has no server
+  redirects, so when a page moves leave a `components/redirect.tsx` stub at its old URL.
 - **Assets** live under `public/img/<name>/`, never `public/<name>/`: a folder named like a route would shadow
   `<name>.html` on GitHub Pages. Paths are root-relative, so the site must be served from the domain root.
   Convert new art to WebP (`cwebp`) and keep images reasonably sized.

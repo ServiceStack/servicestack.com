@@ -8,7 +8,7 @@ function CortexZeroFaq() {
             <details id="cortex-zero-faq-release" className="gs-qa">
                 <summary>When can I play Cortex Zero?</summary>
                 <div className="gs-answer">
-                    <p>Right now, if you&apos;re on a computer: the full game is <a href="/cortex-zero#download">free to download</a> for
+                    <p>Right now, if you&apos;re on a computer: the full game is <a href="/games/cortex-zero#download">free to download</a> for
                         Windows, macOS and Linux for a limited time. It&apos;s coming to iPhone, iPad and Mac on the App Store, and to PC on
                         Steam. Every order works by mouse and keyboard or by touch, so you can play it whichever way suits you.</p>
                     <p>We&apos;d love to hear how it went. Send us a message below.</p>

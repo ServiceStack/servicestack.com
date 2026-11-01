@@ -43,7 +43,7 @@ export default function GamesPage() {
                 <p className="gs-game-status">{x.badge}</p>
                 <h2 className="gs-feature-title">
                   <img src={iconUrl(x.id)} alt="" width={56} height={56} />
-                  <a href={`/${x.id}`} className="gs-feature-link">{game.name}</a>
+                  <a href={`/games/${x.id}`} className="gs-feature-link">{game.name}</a>
                 </h2>
                 <p className="gs-feature-text">{x.text}</p>
                 <p className="gs-feature-platforms">{x.platforms}</p>

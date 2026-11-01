@@ -68,8 +68,8 @@ export default function Home() {
           <span className="text-xl font-bold tracking-tight text-white">ServiceStack</span>
         </Link>
         <nav aria-label="Sites" className="flex items-center gap-1 text-sm font-medium">
-          <Link href="/spell-stone" className="hidden rounded-full px-3 py-2 text-slate-300 transition-colors hover:bg-white/5 hover:text-white sm:inline-block">Spell &amp; Stone</Link>
-          <Link href="/cortex-zero" className="hidden rounded-full px-3 py-2 text-slate-300 transition-colors hover:bg-white/5 hover:text-white sm:inline-block">Cortex Zero</Link>
+          <Link href="/games/spell-stone" className="hidden rounded-full px-3 py-2 text-slate-300 transition-colors hover:bg-white/5 hover:text-white sm:inline-block">Spell &amp; Stone</Link>
+          <Link href="/games/cortex-zero" className="hidden rounded-full px-3 py-2 text-slate-300 transition-colors hover:bg-white/5 hover:text-white sm:inline-block">Cortex Zero</Link>
           <a href="https://react-templates.net" className="hidden rounded-full px-3 py-2 text-slate-300 transition-colors hover:bg-white/5 hover:text-white md:inline-block">React Templates</a>
           <a href="https://servicestack.net" className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-white transition-colors hover:border-white/30 hover:bg-white/10">
             servicestack.net <ArrowUpRight className="h-4 w-4" />
@@ -89,7 +89,7 @@ export default function Home() {
         </section>
 
         {/* Featured: Cortex Zero */}
-        <Link href="/cortex-zero" aria-label="Cortex Zero: explore the game"
+        <Link href="/games/cortex-zero" aria-label="Cortex Zero: explore the game"
               className="group relative block overflow-hidden rounded-[2rem] shadow-2xl shadow-black/60 ring-1 ring-cyan-300/15 transition-all duration-500 hover:ring-cyan-300/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300">
           <div className="relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-[21/9]">
             {/* The squad stands on the right of the key art, clear of the copy */}
@@ -115,7 +115,7 @@ export default function Home() {
         </Link>
 
         {/* Featured: Spell & Stone */}
-        <Link href="/spell-stone" aria-label="Spell & Stone: explore the game"
+        <Link href="/games/spell-stone" aria-label="Spell & Stone: explore the game"
               className="mt-8 group relative block overflow-hidden rounded-[2rem] shadow-2xl shadow-black/60 ring-1 ring-amber-200/15 transition-all duration-500 hover:ring-amber-200/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300">
           <div className="relative aspect-[4/5] sm:aspect-[16/10] lg:aspect-[21/9]">
             {/* On wide screens the art sits right of the copy so its painted logo stays fully visible */}
@@ -175,8 +175,8 @@ export default function Home() {
              style={{ paddingBottom: 'calc(2rem + env(safe-area-inset-bottom, 0px))' }}>
           <p>&copy; {new Date().getFullYear()} ServiceStack Inc.</p>
           <nav aria-label="Footer" className="flex gap-6">
-            <Link href="/spell-stone" className="hover:text-slate-300">Spell &amp; Stone</Link>
-            <Link href="/cortex-zero" className="hover:text-slate-300">Cortex Zero</Link>
+            <Link href="/games/spell-stone" className="hover:text-slate-300">Spell &amp; Stone</Link>
+            <Link href="/games/cortex-zero" className="hover:text-slate-300">Cortex Zero</Link>
             <a href="https://servicestack.net" className="hover:text-slate-300">servicestack.net</a>
             <a href="https://react-templates.net" className="hover:text-slate-300">react-templates.net</a>
           </nav>
