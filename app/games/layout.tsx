@@ -24,7 +24,7 @@ export default function GamesLayout({ children }: { children: React.ReactNode })
       <a className="gs-skip" href="#main">Skip to content</a>
 
       <nav className="gs-nav gs-wrap" aria-label="Site">
-        <a href="/games/support" className="gs-nav-brand">
+        <a href="/games" className="gs-nav-brand">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="6"/><path d="M6 12h4M8 10v4"/><circle cx="15.5" cy="11" r=".6" fill="currentColor"/><circle cx="17.5" cy="13" r=".6" fill="currentColor"/></svg>
           ServiceStack Games
         </a>
@@ -43,7 +43,7 @@ export default function GamesLayout({ children }: { children: React.ReactNode })
             ))}
           </ul>
           <p>Games by <a href="/">ServiceStack</a>. Prefer email? Write to <a href={mailto}>{CONTACT}</a></p>
-          <p className="gs-footer-links"><a href="/games/support">Support</a> · <a href="/games/privacy">Privacy Policy</a></p>
+          <p className="gs-footer-links"><a href="/games">Games</a> · <a href="/games/support">Support</a> · <a href="/games/privacy">Privacy Policy</a></p>
           <p className="gs-footer-copy">&copy; {new Date().getFullYear()} ServiceStack, Inc.</p>
         </div>
       </footer>
