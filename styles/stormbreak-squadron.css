@@ -1,0 +1,184 @@
+/* Stormbreak Squadron product page theme: the game's own palette (night ocean, cloud white, Kestrel gold, cockpit-blue UI frames, roundel red) */
+
+@theme {
+  --font-sb-display: var(--font-russo-one), "Russo One", system-ui, sans-serif;
+  --font-sb-body: var(--font-saira), "Saira", system-ui, sans-serif;
+
+  --color-sb-ink: #06101c;
+  --color-sb-ink-2: #0a1726;
+  --color-sb-ink-3: #102238;
+  --color-sb-sky: #eaf3fc;
+  --color-sb-mist: #93a9c2;
+  --color-sb-gold: #ffc23a;
+  --color-sb-blue: #3aa8ff;
+  --color-sb-reef: #3fe0d0;
+  --color-sb-red: #ef4b3c;
+}
+
+/* next/font defines its variables on .sb-page, so the font tokens must resolve there, not on :root */
+.sb-page {
+  --font-sb-display: var(--font-russo-one), "Russo One", system-ui, sans-serif;
+  --font-sb-body: var(--font-saira), "Saira", system-ui, sans-serif;
+  background: var(--color-sb-ink);
+  color: var(--color-sb-sky);
+  font-family: var(--font-sb-body);
+  overflow-x: clip;
+}
+
+.sb-page ::selection { background: #ffc23a55; color: #fff; }
+
+/* Display type: Russo One, set in uppercase like the in-game stage titles */
+.sb-display { font-family: var(--font-sb-display); text-transform: uppercase; letter-spacing: .02em; }
+
+/* Condensed HUD labels: Saira on its narrow width axis */
+.sb-label {
+  font-family: var(--font-sb-body);
+  font-stretch: 72%;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+}
+
+/* Kestrel-gold headline with a warm afterburner glow */
+.sb-gold {
+  background: linear-gradient(180deg, #fff1c4 0%, #ffd25c 45%, #f29a1c 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 2px 0 #00000080) drop-shadow(0 0 18px #ffb02e40);
+}
+.sb-sky-text { color: #f4f9ff; text-shadow: 0 2px 0 #0008, 0 0 24px #3aa8ff33; }
+
+/* Section eyebrow: ▸▸ LABEL ───── */
+.sb-eyebrow {
+  display: flex; align-items: center; gap: .7rem;
+  font-stretch: 72%; font-weight: 700;
+  font-size: .85rem; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--color-sb-gold);
+}
+.sb-eyebrow::before {
+  content: ""; width: 1.4rem; height: .55rem; flex: none;
+  background: linear-gradient(90deg, transparent, var(--color-sb-gold));
+  clip-path: polygon(0 0, 72% 0, 100% 50%, 72% 100%, 0 100%);
+}
+.sb-eyebrow-center { justify-content: center; }
+.sb-eyebrow-center::after {
+  content: ""; height: 1px; width: min(14vw, 5rem);
+  background: linear-gradient(90deg, currentColor, transparent);
+}
+
+/* Cockpit panel echoing the in-game briefing window: bevelled corners, a blue frame and a header tab */
+.sb-panel {
+  position: relative;
+  background: linear-gradient(180deg, #11263fee, #0a1727f5);
+  border: 1px solid #3aa8ff55;
+  border-radius: 4px;
+  clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
+  box-shadow: inset 0 1px 0 #ffffff14, inset 0 0 50px #3aa8ff0f;
+}
+.sb-panel::before {
+  content: ""; position: absolute; top: 0; left: 50%; translate: -50% 0; width: 34%; height: 3px;
+  background: var(--color-sb-blue); box-shadow: 0 0 14px var(--color-sb-blue);
+  border-radius: 0 0 3px 3px;
+}
+
+/* Frames screenshots like a canopy display */
+.sb-frame {
+  position: relative;
+  border: 1px solid #3aa8ff4d;
+  border-radius: 10px;
+  background: #000;
+  box-shadow: 0 0 0 1px #000, 0 0 44px -10px #3aa8ff66, 0 40px 80px -30px #000;
+  overflow: hidden;
+}
+
+/* Primary call to action, styled like the in-game TAKE OFF button */
+.sb-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+  padding: .95rem 1.9rem;
+  font-family: var(--font-sb-display); font-size: .95rem; letter-spacing: .12em; text-transform: uppercase;
+  color: #3a2200;
+  background: linear-gradient(180deg, #ffe08a 0%, #ffc23a 48%, #e99a12 100%);
+  border-radius: 4px;
+  box-shadow: inset 0 1px 0 #fff6, inset 0 -3px 0 #0003, 0 0 0 1px #8a5a0a, 0 10px 30px -8px #ffb02e99;
+  transition: transform .2s ease, filter .2s ease;
+}
+.sb-btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+
+.sb-btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+  padding: .95rem 1.9rem;
+  font-family: var(--font-sb-display); font-size: .95rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--color-sb-sky);
+  border: 1px solid #3aa8ff99;
+  border-radius: 4px;
+  background: #06101c99;
+  backdrop-filter: blur(8px);
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.sb-btn-ghost:hover { background: #3aa8ff1f; border-color: var(--color-sb-blue); transform: translateY(-2px); }
+
+/* Large download button: a solid Kestrel-gold plate that lifts and glows on hover */
+.sb-dl {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.15rem 1.4rem;
+  color: #3a2200; text-align: left;
+  background: linear-gradient(180deg, #ffe7a0 0%, #ffc23a 52%, #e99a12 100%);
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 #fff8, inset 0 -3px 0 #0003, 0 0 0 1px #8a5a0a, 0 14px 36px -10px #ffb02eaa;
+  transition: transform .2s ease, filter .2s ease, box-shadow .2s ease;
+}
+.sb-dl:hover { transform: translateY(-3px); filter: brightness(1.08); box-shadow: inset 0 1px 0 #fff8, inset 0 -3px 0 #0003, 0 0 0 1px #8a5a0a, 0 18px 48px -8px #ffb02edd; }
+.sb-dl:active { transform: translateY(0); filter: brightness(.96); }
+
+.sb-page a:focus-visible, .sb-page button:focus-visible {
+  outline: 2px solid var(--color-sb-gold);
+  outline-offset: 3px;
+}
+
+/* Faint map grid over dark sections */
+.sb-grid {
+  background-image: linear-gradient(to right, #3aa8ff0b 1px, transparent 1px), linear-gradient(to bottom, #3aa8ff0b 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* RAF-style roundel used as a list marker and badge */
+.sb-roundel {
+  display: inline-block; flex: none; width: .8rem; height: .8rem; border-radius: 9999px;
+  background: radial-gradient(circle, var(--color-sb-red) 0 30%, #f4f6fa 31% 58%, #2d4f8f 59% 100%);
+  box-shadow: 0 0 0 1px #0006;
+}
+
+@keyframes sb-in {
+  from { opacity: 0; transform: translateY(16px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@keyframes sb-drift {
+  from { transform: translate3d(-4%, 0, 0); }
+  to { transform: translate3d(4%, 0, 0); }
+}
+@keyframes sb-bob {
+  0%, 100% { transform: translateY(0) rotate(var(--tilt, 0deg)); }
+  50% { transform: translateY(-10px) rotate(var(--tilt, 0deg)); }
+}
+@keyframes sb-glint {
+  0%, 70% { transform: translateX(-120%) skewX(-20deg); }
+  100% { transform: translateX(220%) skewX(-20deg); }
+}
+
+.sb-in { animation: sb-in .6s cubic-bezier(.2,.7,.2,1) both; }
+.sb-drift { animation: sb-drift 24s ease-in-out infinite alternate; }
+.sb-bob { animation: sb-bob 6s ease-in-out infinite; }
+.sb-glint { position: relative; overflow: hidden; }
+.sb-glint::after {
+  content: ""; position: absolute; inset: 0; width: 40%; pointer-events: none;
+  background: linear-gradient(90deg, transparent, #ffffff55, transparent);
+  animation: sb-glint 4.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sb-in, .sb-drift, .sb-bob, .sb-glint::after { animation: none; }
+  .sb-glint::after { display: none; }
+  .sb-btn:hover, .sb-btn-ghost:hover, .sb-dl, .sb-dl:hover, .sb-dl:active { transform: none; }
+}
+
+/* Keep overscroll and the area behind the page dark */
+html:has(.sb-page), html:has(.sb-page) body { background: var(--color-sb-ink); color-scheme: dark; }

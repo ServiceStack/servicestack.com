@@ -4,7 +4,7 @@
 export const ASSETS = '/img/games'
 export const CONTACT = 'team@servicestack.net'
 
-export type GameId = 'spell-stone' | 'cortex-zero'
+export type GameId = 'spell-stone' | 'cortex-zero' | 'stormbreak-squadron'
 
 export type SupportedGame = {
     id: GameId
@@ -19,6 +19,8 @@ export const games: SupportedGame[] = [
       devices: ['iPhone', 'iPad', 'Mac', 'Windows', 'Linux', 'Other'] },
     { id: 'cortex-zero', name: 'Cortex Zero', genre: 'Neo-noir real-time tactics', status: 'In development',
       devices: ['iPad', 'Mac', 'Windows', 'Linux', 'Other'] },
+    { id: 'stormbreak-squadron', name: 'Stormbreak Squadron', genre: 'Arcade aerial shoot \'em up', status: 'Free on desktop',
+      devices: ['iPhone', 'iPad', 'Mac', 'Windows', 'Linux', 'Other'] },
 ]
 
 export const topics = ['Gameplay help', 'Bug or crash', 'Purchase or restore', 'Saves and progress', 'Feedback and ideas', 'Something else']

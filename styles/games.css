@@ -26,6 +26,9 @@
 .gs-page [data-game="cortex-zero"], .gs-page[data-game="cortex-zero"], .gs-page:has(#game-cortex-zero:checked) {
     --accent: #3ff4ff; --accent-2: #00b8d4; --accent-ink: #00262c; --accent-glow: rgba(0, 240, 255, .35);
 }
+.gs-page [data-game="stormbreak-squadron"], .gs-page[data-game="stormbreak-squadron"], .gs-page:has(#game-stormbreak-squadron:checked) {
+    --accent: #ffc23a; --accent-2: #e99a12; --accent-ink: #3a2200; --accent-glow: rgba(58, 168, 255, .32);
+}
 
 html:has(.gs-page) { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background: #0b0c12; color-scheme: dark; }
 .gs-page {
@@ -91,7 +94,7 @@ html:has(.gs-page) { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; ba
 .gs-game-name { font: 800 clamp(22px, 2.6vw, 28px)/1.1 var(--display); letter-spacing: -.02em; color: #fff; }
 .gs-game-genre { color: rgba(255, 255, 255, .75); font-size: 15px; }
 .gs-game-status {
-    align-self: flex-start; flex: none;
+    position: absolute; top: 16px; left: 16px;
     padding: 5px 11px; border-radius: 999px;
     font: 700 11px/1 var(--body); letter-spacing: .12em; text-transform: uppercase;
     color: var(--accent); background: rgba(8, 9, 14, .6); border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
@@ -223,7 +226,7 @@ textarea.gs-input { resize: vertical; min-height: 160px; }
 .gs-feature:hover .gs-feature-art { transform: scale(1.04); }
 .gs-feature:has(.gs-feature-link:focus-visible) { outline: 3px solid var(--accent); outline-offset: 4px; }
 .gs-feature-body { max-width: 560px; padding: clamp(24px, 4vw, 44px); }
-.gs-feature-body .gs-game-status { display: inline-block; margin: 0; }
+.gs-feature-body .gs-game-status { position: static; display: inline-block; margin: 0; }
 .gs-feature-title { display: flex; align-items: center; gap: 14px; margin: 16px 0 0; font: 800 clamp(34px, 5vw, 52px)/1.05 var(--display); letter-spacing: -.03em; }
 .gs-feature-title img { width: 56px; height: 56px; border-radius: 14px; flex: none; box-shadow: 0 6px 18px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 255, 255, .15); }
 .gs-feature-link { color: #fff; text-decoration: none; }
@@ -281,7 +284,6 @@ textarea.gs-input { resize: vertical; min-height: 160px; }
     .gs-grid, .gs-grid-wide { grid-template-columns: 1fr; }
     .gs-game-body { padding: 16px; }
     .gs-game-icon { width: 52px; height: 52px; }
-    .gs-game-status { position: absolute; top: 16px; left: 16px; }
     .gs-form-foot .gs-btn { width: 100%; }
     /* Stack the art above the copy so text never sits on busy art */
     .gs-feature { display: block; min-height: 0; border-radius: 22px; }

@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { fontVariables } from "@/components/games/fonts"
 import { CONTACT, games, iconUrl } from "@/components/games/data"
 
-const description = 'Help and support for games by ServiceStack, including Spell & Stone and Cortex Zero. Find answers, restore purchases, report a bug or contact the team.'
+const description = 'Help and support for games by ServiceStack, including Spell & Stone, Cortex Zero and Stormbreak Squadron. Find answers, restore purchases, report a bug or contact the team.'
 
 export const metadata: Metadata = {
   title: 'Game Support · ServiceStack',

@@ -4,7 +4,7 @@ import { cardUrl, GameId, games, iconUrl } from "@/components/games/data"
 
 export const metadata: Metadata = {
   title: 'Games · ServiceStack',
-  description: 'Games made by the team behind ServiceStack: Cortex Zero and Spell & Stone.',
+  description: 'Games made by the team behind ServiceStack: Cortex Zero, Stormbreak Squadron and Spell & Stone.',
   alternates: { canonical: '/games' },
 }
 
@@ -14,6 +14,12 @@ const featured: { id: GameId, badge: string, text: string, platforms: string }[]
     id: 'cortex-zero',
     badge: 'New game · Free on desktop',
     text: 'A neo-noir real-time tactics and stealth game. Lead four resurrected Enforcers through a rain-soaked megacity and sever the Chime.',
+    platforms: 'Windows · macOS · Linux · iPhone · iPad · Steam',
+  },
+  {
+    id: 'stormbreak-squadron',
+    badge: 'New game · Free on desktop',
+    text: 'An arcade aerial shoot \'em up built for touch. Fly 24 stages across six theatres of war and bring down the Dominion\'s flying fortresses.',
     platforms: 'Windows · macOS · Linux · iPhone · iPad · Steam',
   },
   {

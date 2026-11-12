@@ -6,7 +6,8 @@ Guidance for Claude Code and other agents working in this repository.
 
 servicestack.com is a **fully static** marketing site for ServiceStack's products, built with Next.js 16 (App Router),
 React 19 and Tailwind CSS v4. The home page (`/`) is a hub of CTAs to mini sites hosted here, like the **Spell & Stone**
-game at `/games/spell-stone` and **Cortex Zero** at `/games/cortex-zero`, and to related sites like [servicestack.net](https://servicestack.net) and
+game at `/games/spell-stone`, **Cortex Zero** at `/games/cortex-zero` and **Stormbreak Squadron** at
+`/games/stormbreak-squadron`, and to related sites like [servicestack.net](https://servicestack.net) and
 [react-templates.net](https://react-templates.net).
 
 There is no backend: no API, auth, database or server runtime. Everything is exported to plain HTML/CSS/JS and
@@ -31,7 +32,8 @@ app/
 ├── games/
 │   ├── (support)/           # Route group: /games, /games/support, /games/privacy share its layout (nav + footer)
 │   ├── spell-stone/page.tsx # Spell & Stone mini site (fonts, SEO/OG metadata, section order), outside that layout
-│   └── cortex-zero/page.tsx # Cortex Zero mini site
+│   ├── cortex-zero/page.tsx # Cortex Zero mini site
+│   └── stormbreak-squadron/page.tsx # Stormbreak Squadron mini site
 ├── spell-stone/, cortex-zero/ # Redirect stubs: the mini sites' old URLs forward to /games/* (components/redirect.tsx)
 ├── icon.png, apple-icon.png # Favicons (game icon), picked up automatically by Next.js
 components/spell-stone/
@@ -49,6 +51,9 @@ components/cortex-zero/       # Cortex Zero mini site at /cortex-zero (same layo
 styles/cortex-zero.css       # Its theme tokens (cz-*: ink/fog/cyan/amber/crimson), Chakra Petch + Share Tech Mono
 public/img/spell-stone/      # WebP art and screenshots exported from the game repo
 public/img/cortex-zero/      # Cortex Zero art and in-engine screenshots (game repo: scripts/capture-shots.sh)
+components/stormbreak-squadron/ # Stormbreak Squadron mini site (data.ts, sections.tsx, theatre picker, gallery)
+styles/stormbreak-squadron.css # Its theme tokens (sb-*: ink/sky/mist/gold/blue/reef/red), Russo One + Saira
+public/img/stormbreak-squadron/ # Briefing art, boss cards and portrait 3:4 iPad captures (game repo: tools/appstore-screenshots.sh)
 public/img/hub/              # Card art for the home hub
 .github/workflows/deploy.yml # Build + deploy to GitHub Pages on push to main
 ```

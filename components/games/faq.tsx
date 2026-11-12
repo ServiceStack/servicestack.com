@@ -137,7 +137,74 @@ function SpellStoneFaq() {
     )
 }
 
+function StormbreakSquadronFaq() {
+    return (
+        <>
+            <details id="stormbreak-squadron-faq-release" className="gs-qa">
+                <summary>When can I play Stormbreak Squadron?</summary>
+                <div className="gs-answer">
+                    <p>Right now, if you&apos;re on a computer: the full game is <a href="/games/stormbreak-squadron#download">free to download</a> for
+                        Windows, macOS and Linux for a limited time. It&apos;s coming to iPhone and iPad on the App Store, and to PC on Steam, as
+                        a single purchase for the whole 24-stage campaign, with no ads and no in-app purchases.</p>
+                </div>
+            </details>
+            <details id="stormbreak-squadron-faq-controls" className="gs-qa">
+                <summary>How do the controls work?</summary>
+                <div className="gs-answer">
+                    <p>Your left thumb has <strong>FIRE</strong> (hold it down), <strong>ROLL</strong> and <strong>BOMB</strong>. Drag anywhere on
+                        the right side of the screen to steer with a floating stick. The pause button sits at the top of the screen.</p>
+                    <p>Prefer not to hold FIRE? Turn on <strong>Auto-fire</strong> in Settings, and the fire button becomes a toggle.</p>
+                    <p>On a computer, steer with the mouse or WASD and fire with the left mouse button or <strong>Space</strong>. The right mouse
+                        button or <strong>Ctrl</strong> rolls, <strong>Q</strong> / <strong>E</strong> dodge-roll sideways and <strong>B</strong> drops
+                        a bomb. Controllers work too, and every binding can be changed under Settings → Controls.</p>
+                </div>
+            </details>
+            <details id="stormbreak-squadron-faq-hard" className="gs-qa">
+                <summary>It&apos;s too hard. Can I make it easier?</summary>
+                <div className="gs-answer">
+                    <p>Choose the <strong>Assist</strong> difficulty from the main menu: it adds armour, widens the roll window and slows
+                        enemy fire. In Settings you can also slow the game down to 60% speed, turn on high-contrast bullets and always show
+                        your hitbox.</p>
+                    <p>Remember that every stage starts the cannon at power 1, so grab the green <strong>P</strong> pickups, and save a bomb for
+                        the boss. You can practise any boss you&apos;ve reached in <strong>Finale Practice</strong>.</p>
+                </div>
+            </details>
+            <details id="stormbreak-squadron-faq-saves" className="gs-qa">
+                <summary>Will I lose my progress?</summary>
+                <div className="gs-answer">
+                    <p>Your campaign, settings and records are saved on your device. Each save replaces the previous one in a single step and
+                        keeps a backup, so an interrupted save never leaves you with a broken campaign. Tap <strong>CONTINUE</strong> on the main
+                        menu to pick up where you left off.</p>
+                </div>
+            </details>
+            <details id="stormbreak-squadron-faq-bug" className="gs-qa">
+                <summary>How do I report a bug?</summary>
+                <div className="gs-answer">
+                    <p>Use the form below and tell us which stage you were on, which difficulty you were playing and what you expected to
+                        happen. A screenshot or screen recording helps a lot. You&apos;ll find the game version under <strong>Credits &amp; licences</strong> on the main menu.</p>
+                    <p>On Mac, Windows or Linux, please attach the log files from the <code>logs</code> folder:</p>
+                    <ul>
+                        <li><strong>Mac:</strong> <code>~/Library/Application Support/Godot/app_userdata/Stormbreak Squadron/logs</code></li>
+                        <li><strong>Windows:</strong> <code>%APPDATA%\Godot\app_userdata\Stormbreak Squadron\logs</code></li>
+                        <li><strong>Linux:</strong> <code>~/.local/share/godot/app_userdata/Stormbreak Squadron/logs</code></li>
+                    </ul>
+                </div>
+            </details>
+            <details id="stormbreak-squadron-faq-privacy" className="gs-qa">
+                <summary>What data does the game collect?</summary>
+                <div className="gs-answer">
+                    <p>None. Stormbreak Squadron has no accounts, ads, analytics or online features, and plays fully offline. Your progress
+                        stays on your device.</p>
+                    <p>If you contact us, we use your email address only to reply to you, and keep your message privately so we can follow
+                        up. See our <a href="/games/privacy">Privacy Policy</a>.</p>
+                </div>
+            </details>
+        </>
+    )
+}
+
 export const faqs: Record<GameId, () => React.ReactNode> = {
     'spell-stone': SpellStoneFaq,
     'cortex-zero': CortexZeroFaq,
+    'stormbreak-squadron': StormbreakSquadronFaq,
 }
