@@ -1,5 +1,6 @@
-// Games covered by the support pages. Ids, topics and devices mirror GameSupportRequest in servicestack-api,
-// which validates them, so keep both in step.
+// Games covered by the support pages. To add a game, add it here: servicestack-api accepts any game by its id
+// (lowercase-with-dashes) and name. Topics, and the devices it allows for a game it doesn't list, must stay
+// within GameSupportRequest.Topics and GameSupportRequest.Devices in servicestack-api.
 
 export const ASSETS = '/img/games'
 export const CONTACT = 'team@servicestack.net'

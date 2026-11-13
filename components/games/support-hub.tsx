@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from "react"
 import { CONTACT, type GameId, allDevices, cardUrl, games, iconUrl, isGameId, topics } from "./data"
 import { faqs } from "./faq"
-import { type SupportReceipt, submitSupportRequest } from "./api"
+import { type SupportReceipt, SupportError, submitSupportRequest } from "./api"
 
 const noFiles = 'or drop them here'
 
-/** A pre-filled email with the form's answers, offered while online messages aren't connected */
+/** A pre-filled email with the form's answers, offered when a message can't be sent online */
 function mailtoFor(form: FormData) {
     const game = games.find(x => x.id === form.get('Game'))
     const field = (name: string) => String(form.get(name) ?? '').trim()
@@ -31,6 +31,7 @@ export default function SupportHub() {
     const [dragOver, setDragOver] = useState(false)
     const [sending, setSending] = useState(false)
     const [fallback, setFallback] = useState<string | null>(null)
+    const [error, setError] = useState<string | null>(null)
     const [receipt, setReceipt] = useState<{ game: GameId, receipt: SupportReceipt } | null>(null)
     const fileInput = useRef<HTMLInputElement>(null)
     const picker = useRef<HTMLFieldSetElement>(null)
@@ -66,12 +67,13 @@ export default function SupportHub() {
         const form = new FormData(e.currentTarget)
         setSending(true)
         setFallback(null)
+        setError(null)
         try {
             const result = await submitSupportRequest(form)
             setReceipt({ game: form.get('Game') as GameId, receipt: result })
-            window.scrollTo({ top: 0 })
-        } catch {
-            setFallback(mailtoFor(form))
+        } catch (e) {
+            if (e instanceof SupportError && e.invalid) setError(e.message)
+            else setFallback(mailtoFor(form))
         } finally {
             setSending(false)
         }
@@ -137,11 +139,12 @@ export default function SupportHub() {
                     <form id="support-form" onSubmit={onSubmit} encType="multipart/form-data" className="gs-panel gs-form">
                         {fallback && (
                             <div className="gs-alert" role="alert">
-                                Online messages aren&apos;t switched on yet, sorry. Your message hasn&apos;t been sent, but you
-                                can <a href={fallback}>email it to us instead</a>: we&apos;ve filled in your answers for you. Please
-                                attach any screenshots or log files to the email.
+                                We couldn&apos;t send your message just now, sorry. You can try again, or <a href={fallback}>email
+                                it to us instead</a>: we&apos;ve filled in your answers for you. Please attach any screenshots or
+                                log files to the email.
                             </div>
                         )}
+                        {error && <div className="gs-alert" role="alert">{error}</div>}
 
                         <div className="gs-field">
                             <p className="gs-label">Game</p>
@@ -268,6 +271,8 @@ export default function SupportHub() {
 
 function Received({ game: id, receipt }: { game: GameId, receipt: SupportReceipt }) {
     const game = games.find(x => x.id === id)!
+    // Scroll once it has replaced the taller form
+    useEffect(() => window.scrollTo({ top: 0 }), [])
     const mailSubject = encodeURIComponent(`${game.name} support ${receipt.id}`)
     return (
         <section className="gs-wrap gs-section gs-received">
